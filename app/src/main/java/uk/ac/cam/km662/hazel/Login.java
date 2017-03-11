@@ -33,15 +33,6 @@ public class Login extends AppCompatActivity {
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         callbackManager = CallbackManager.Factory.create();
@@ -54,7 +45,7 @@ public class Login extends AppCompatActivity {
                 // Login succeeds so we have AccessToken and most recently granted or
                 // declined permissions
                 Intent intent = new Intent(Login.this, Map.class);
-
+                startActivity(intent);
             }
 
             @Override
